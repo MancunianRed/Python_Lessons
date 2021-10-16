@@ -94,7 +94,7 @@ if (minutes := time[3:]) == '00':
 else:
     minutes_1 = int(minutes.lstrip('0'))
 if hours_1 < 6 or (hours_1 == 18 and minutes_1 > 0) or hours_1 > 18:
-    print('Солнце за горизантом!')
+    print('Солнце за горизонтом!')
 else:
     if minutes_1 == 0:
         print('Угол солнца ', (hours_1 - 6) * 15, 'градусов')
