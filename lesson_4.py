@@ -33,9 +33,11 @@ else:
 
 #  Условные операторы: Задание 4 - 70 баллов
 if (len_1 := int(len(input('Введите строку: ')))) <= 100:
-    if (len_1 == 1) or (int(str(len_1)[-1]) == 1):
+    if 11 <= len_1 <= 14:
+        print('В строке', len_1, 'символов')
+    elif (len_1 == 1) or (len_1 % 10 == 1):
         print('В строке', len_1, 'символ')
-    elif (2 <= len_1 <= 4) or (2 <= int(str(len_1)[-1]) <= 4):
+    elif (2 <= len_1 <= 4) or (2 <= len_1 % 10 <= 4):
         print('В строке', len_1, 'символa')
     else:
         print('В строке', len_1, 'символов')
@@ -85,11 +87,11 @@ else:
 
 #  Условные операторы: Задание 7 - 200 баллов
 time = input('Введите время: ')
-if (hours := time[:2]) == '00':
+if (hours := time.split(':')[0]) == '00':
     hours_1 = 0
 else:
     hours_1 = int(hours.lstrip('0'))
-if (minutes := time[3:]) == '00':
+if (minutes := time.split(':')[1]) == '00':
     minutes_1 = 0
 else:
     minutes_1 = int(minutes.lstrip('0'))
