@@ -87,19 +87,12 @@ else:
 
 #  Условные операторы: Задание 7 - 200 баллов
 time = input('Введите время: ')
-if (hours := time.split(':')[0]) == '00':
-    hours_1 = 0
-else:
-    hours_1 = int(hours.lstrip('0'))
-if (minutes := time.split(':')[1]) == '00':
-    minutes_1 = 0
-else:
-    minutes_1 = int(minutes.lstrip('0'))
-if hours_1 < 6 or (hours_1 == 18 and minutes_1 > 0) or hours_1 > 18:
+hours = int(time.split(':')[0])
+minutes = int(time.split(':')[1])
+if hours < 6 or (hours == 18 and minutes > 0) or hours > 18:
     print('Солнце за горизонтом!')
 else:
-    if minutes_1 == 0:
-        print('Угол солнца ', (hours_1 - 6) * 15, 'градусов')
+    if minutes == 0:
+        print('Угол солнца ', (hours - 6) * 15, 'градусов')
     else:
-        print('Угол солнца ', (hours_1 - 6) * 15 + minutes_1 * 0.25, 'градусов')
-
+        print('Угол солнца ', (hours - 6) * 15 + minutes * 0.25, 'градусов')
