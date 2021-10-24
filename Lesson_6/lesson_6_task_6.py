@@ -24,15 +24,10 @@ def count_words(a):
 
 
 def count_symbols(a):
-    arg = {}
-    for i in a:
-        if i in arg.keys():
-            continue
-        else:
-            arg[i] = a.count(i)
+    arg = set(a)
     print('Сколько раз встречается каждый знак: ', end='\n')
     for i in sorted(arg):
-        print(i, '-', arg.get(i))
+        print(i, '-', a.count(i))
 
 
 if __name__ == '__main__':
@@ -40,3 +35,5 @@ if __name__ == '__main__':
     count_symbols_and_spaces(string)
     count_words(string)
     count_symbols(string)
+
+
