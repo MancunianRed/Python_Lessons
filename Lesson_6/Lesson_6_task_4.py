@@ -1,7 +1,10 @@
 #  Функции: Задание 4 - 50 баллов
-word = input('Введите слово: ')
+def words_list(a):
+    words = []
+    while len(a) > 0:
+        words.append(a)
+        a = input('Введите любое слово: ')
+    print(words)
 
-compare_with_predator = lambda x: 'Это слово больше чем predator' if len(x) > \
-                    len('predator') else 'Это слово меньше чем predator'
 
-print(compare_with_predator(word))
+words_list(input('Введите любое слово: '))
