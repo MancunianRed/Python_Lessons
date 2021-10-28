@@ -4,6 +4,5 @@
 def new_format(string):
     string_1 = '+-' * len(string) + '+'
     string_2 = '|' + '|'.join(string) + '|'
-    print(string_1)
-    print(string_2)
-    print(string_1)
+    agrs = (string_1, string_2)
+    return agrs

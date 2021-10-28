@@ -2,4 +2,7 @@
 from Lesson_7.new_text_format import new_format
 
 new_text = input('Введите текст: ')
-new_format(new_text)
+
+print(new_format(new_text)[0])
+print(new_format(new_text)[1])
+print(new_format(new_text)[0])
