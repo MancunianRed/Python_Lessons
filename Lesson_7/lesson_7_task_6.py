@@ -10,14 +10,21 @@ def roads_print(results):
     print()
 
 
-table_results = {x: random.randint(10, 30) for x in ('one', 'two', 'three')}
+def get_the_winner(**kwargs):
+    print(' Старт! '.center(30, '-'))
+    for num, i in enumerate(kwargs.keys(), 1):
+        print(str(num) + ')')
+        roads_print(kwargs.get(i))
 
-print(' Старт! '.center(30, '-'))
-count = 1
-for i in table_results.keys():
-    print(str(count) + ')')
-    roads_print(table_results.get(i))
-    count += 1
-for number, length in table_results.items():
-    if length == max(table_results.values()):
-        print('Дорожка', number, 'из', length, 'сим. победила!')
+
+def result(**kwargs):
+    for number, length in kwargs.items():
+        if length == max(kwargs.values()):
+            print('Дорожка', number, 'из', length, 'сим. победила!')
+
+
+if __name__ == "__main__":
+    table_results = {x: random.randint(10, 30) for x in ('one', 'two', 'three')}
+    get_the_winner(**table_results)
+    result(**table_results)
+
