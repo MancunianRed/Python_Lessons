@@ -14,41 +14,19 @@ def input_check():
 def game():
     random_number = random.randint(1, 10)
     for i in range(3):
-        if (number := input_check()) is None:
-            if i == 2:
-                print('Удача не на твоей стороне, попробуй ещё!')
-            else:
-                print('Ошибка! Введите число от 1 до 10')
-            continue
-        elif number > 10:
-            if i == 2:
-                print('Удача не на твоей стороне, попробуй ещё!')
-            else:
-                print('Ошибка! Введите число от 1 до 10')
-                print('Ваше число больше')
-            continue
-        elif number < 1:
-            if i == 2:
-                print('Удача не на твоей стороне, попробуй ещё!')
-            else:
-                print('Ошибка! Введите число от 1 до 10')
-                print('Ваше число меньше')
-            continue
-        elif number > random_number:
-            if i == 2:
-                print('Удача не на твоей стороне, попробуй ещё!')
-            else:
-                print('Ваше число больше')
-            continue
-        elif number < random_number:
-            if i == 2:
-                print('Удача не на твоей стороне, попробуй ещё!')
-            else:
-                print('Ваше число меньше')
-            continue
-        elif number == random_number:
+        if (number := input_check()) == random_number:
             print('Ты победил!')
             break
+        elif i == 2:
+            print('Удача не на твоей стороне, попробуй ещё!')
+            break
+        else:
+            if number > 10 or number < 1:
+                print('Ошибка! Введите число от 1 до 10')
+            if number > random_number:
+                print('Ваше число больше')
+            elif number < random_number:
+                print('Ваше число меньше')
 
 
 if __name__ == '__main__':

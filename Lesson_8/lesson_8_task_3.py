@@ -10,8 +10,6 @@ def input_check():
     else:
         if 30 >= number >= 10:
             return number
-        else:
-            return
 
 
 def timer_count(b):
@@ -20,7 +18,7 @@ def timer_count(b):
     else:
         count = a
         for i in range(a + 1):
-            print('\r' + str(count), flush=True, end='')
+            print('\r' + str(count) + " ", flush=True, end='')
             count = count - 1
             time.sleep(1)
 
