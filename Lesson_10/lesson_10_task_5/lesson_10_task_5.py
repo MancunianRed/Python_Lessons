@@ -1,6 +1,7 @@
 #  Форматирование: Задание 5 - 100 баллов
 import random
 import colorama
+from colorama import Fore
 colorama.init(autoreset=True)
 
 
@@ -11,20 +12,16 @@ def dice():
 
 
 def winner():
-    dima = dice()
-    vova = dice()
-    if dima > vova:
-        print(colorama.Fore.GREEN + f'Игрок Дима набрал {dima:02d} очк. You '
-                                    f'winner')
-        print(f'Игрок Вова набрал {vova:02d} очк.')
-    elif vova > dima:
-        print(colorama.Fore.GREEN + f'Игрок Вова набрал {vova:02d} очк. You '
-                                    f'winner')
-        print(f'Игрок Дима набрал {dima:02d} очк.')
-    else:
+    while (dima := dice()) == (vova := dice()):
         print(f'Игрок Дима набрал {dima:02d} очк.\nИгрок Вова набрал '
               f'{vova:02d} очк.\nОчки у обоих игроков '
-              f'совпали, перебрасываем кости')
+              f'совпали, перебрасываем кости\n')
+    if dima > vova:
+        print(f'{Fore.GREEN}Игрок Дима набрал {dima:02d} очк. You winner\n'
+              f'{Fore.RESET}Игрок Вова набрал {vova:02d} очк.')
+    else:
+        print(f'{Fore.GREEN}Игрок Вова набрал {vova:02d} очк. You winner\n'
+              f'{Fore.RESET}Игрок Дима набрал {dima:02d} очк.')
 
 
 if __name__ == '__main__':
