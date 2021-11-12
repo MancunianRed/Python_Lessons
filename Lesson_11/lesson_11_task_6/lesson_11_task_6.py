@@ -8,6 +8,7 @@ class Humans:
         self.name = name
         self.list_1 = list()
         self.attempts = {self.name: self.list_1}
+        self.target()
 
     def target(self):
         print(f'Стреляет {self.name}:')
@@ -27,24 +28,20 @@ class Humans:
                 print(f'Попытка {i + 1}: {self.list_1[i]:02d} оч. Меткий '
                       f'выстрел')
 
-
-def champion():
-    print('-'*39)
-    dict_1 = {artur.name: sum(artur.attempts.get(artur.name)),
-              semen.name: sum(semen.attempts.get(semen.name)),
-              daniil.name: sum(daniil.attempts.get(daniil.name))}
-    sorted_keys = sorted(dict_1, key=dict_1.get, reverse=True)
-    for i in range(3):
-        print(f'{i+1} место в стрельбе из лука: {sorted_keys[i]} - '
-              f'{dict_1.get(sorted_keys[i]):02d} оч.')
+    def champion(self=None):
+        print('-'*39)
+        dict_1 = {artur.name: sum(artur.attempts.get(artur.name)),
+                  semen.name: sum(semen.attempts.get(semen.name)),
+                  daniil.name: sum(daniil.attempts.get(daniil.name))}
+        sorted_keys = sorted(dict_1, key=dict_1.get, reverse=True)
+        for i in range(3):
+            print(f'{i+1} место в стрельбе из лука: {sorted_keys[i]} - '
+                  f'{dict_1.get(sorted_keys[i]):02d} оч.')
 
 
 if __name__ == '__main__':
     artur = Humans('Артур')
     semen = Humans('Семен')
     daniil = Humans('Даниил')
-    artur.target()
-    semen.target()
-    daniil.target()
-    champion()
+    Humans.champion()
 
