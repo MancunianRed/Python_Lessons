@@ -18,4 +18,4 @@ class TextFormat:
 
 
 if __name__ == '__main__':
-    TextFormat('Hello')
+    TextFormat('Игорь Пройченко')

@@ -6,9 +6,10 @@ def my_decorator(function_to_decorate):
 
     def wrap(*args):
         function_to_decorate(*args)
-        current_date = datetime.datetime.now()
-        current_date_string = current_date.strftime('%d-%m-%y %H:%M:%S')
-        print(current_date_string)
+        print(datetime.datetime.now().strftime('%d-%m-%y %H:%M:%S'))
+        # current_date = datetime.datetime.now()
+        # current_date_string = current_date.strftime('%d-%m-%y %H:%M:%S')
+        # print(current_date_string)
     return wrap
 
 
