@@ -1,5 +1,5 @@
 #  Исключения: Задание 2 - 35 баллов
-from Lesson_8.animals import *
+from Part_1.Lesson_8.animals import *
 import random
 
 animals_dict = {1: (deer, 'deer'), 2: (cat, 'cat'), 3: (cow, 'cow'),
