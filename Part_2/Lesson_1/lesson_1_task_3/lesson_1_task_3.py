@@ -7,10 +7,10 @@ class FileReader:
         self.name = name
         self.value_list = list()
 
-    def file_reader(self):
-        with open("phonebook_al.txt", encoding="utf-8") as reader:
+    def file_reader(self, target_name="phonebook_al.txt"):
+        with open(target_name, encoding="utf-8") as reader:
             for value in reader:
-                if self.name in value:
+                if self.name in value.title().split():
                     self.value_list.append(' '.join(value.rsplit()))
             print(f'Найдено {len(self.value_list)} записей.')
             return self.value_list
@@ -34,3 +34,4 @@ def names():
 
 if __name__ == '__main__':
     names()
+

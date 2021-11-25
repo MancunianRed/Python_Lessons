@@ -31,7 +31,7 @@ args = parser.parse_args()
 
 def emails():
     FileReaderWriter(args.domain).write()
-    print(' Done!')
+    print('Done!')
 
 
 if __name__ == '__main__':
