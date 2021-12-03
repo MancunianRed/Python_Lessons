@@ -4,5 +4,5 @@ import re
 
 text = 'Московское время 10:36:06'
 
-res = re.findall(r'[\d:]', text)
-print(''.join(res))
+res = re.search(r'(\d\d:?){3}', text)
+print(res.group())
