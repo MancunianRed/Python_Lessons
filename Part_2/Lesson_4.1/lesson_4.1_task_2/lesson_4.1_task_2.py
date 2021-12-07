@@ -13,5 +13,5 @@ text = '''Примеры расширений файлов:
             sound.mp3 '''
 res = re.findall(r'\w+\.jpeg|\w+\.png|\w+\.gif|\w+\.tiff', text)
 for pics in res:
-    print(''.join(pics))
+    print(pics)
 
