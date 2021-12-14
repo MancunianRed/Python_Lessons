@@ -7,3 +7,4 @@ text = 'Сначала был адрес http://yandex.ru, потом стал h
 res = re.findall(r'(https?://\w+\.[a-z]+)', text)
 for url in sorted(set(res)):
     print(''.join(url))
+
