@@ -14,28 +14,21 @@ def results():
           f'{Fore.RESET}')
 
 
-def race(time_to):
-    if threading.current_thread().getName() == "MAZDA":
-        print(f'Автомобиль {threading.current_thread().getName()} стартовал!')
-        time.sleep(time_to)
-    elif threading.current_thread().getName() == "HONDA":
-        print(f'Автомобиль {threading.current_thread().getName()} стартовал!')
-        time.sleep(time_to)
-    else:
-        print(f'Автомобиль {threading.current_thread().getName()} стартовал!')
-        time.sleep(time_to)
+def race(**vehicles):
+    print(f'Автомобиль {threading.current_thread().getName()} стартовал!')
+    time.sleep(vehicles.get(threading.current_thread().getName()))
     results()
 
 
-
-
-vehicles = {"MAZDA": 15, "HONDA": 18, "TOYOTA": 19}
-start = time.time()
-mazda = threading.Thread(target=race, name="MAZDA", kwargs={"time_to": 15})
-honda = threading.Thread(target=race, name="HONDA", kwargs={"time_to": 18})
-toyota = threading.Thread(target=race, name="TOYOTA", kwargs={"time_to": 19})
-mazda.start()
-honda.start()
-toyota.start()
+if __name__ == "__main__":
+    vehicles = {"MAZDA": 15, "HONDA": 18, "TOYOTA": 19}
+    racing_list = []
+    start = time.time()
+    for name in vehicles.keys():
+        car = threading.Thread(target=race, name=name, kwargs=vehicles)
+        racing_list.append(car)
+        car.start()
+    for car in racing_list:
+        car.join()
 
 
