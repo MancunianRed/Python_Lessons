@@ -8,13 +8,13 @@ colorama.init(autoreset=True)
 
 def count(*num):
     for i in num:
-        if i == "Старт!" or i == "Время вышло!":
+        if i in ("Старт!", "Время вышло!"):
             print(f"{Fore.RED}\r{i:-^12}", end="")
-            time.sleep(1)
+
         else:
             a = f"{i:02d}"
             print(f"{Fore.LIGHTMAGENTA_EX}\r{a:-^12}", end="")
-            time.sleep(1)
+        time.sleep(1)
 
 
 if __name__ == "__main__":
