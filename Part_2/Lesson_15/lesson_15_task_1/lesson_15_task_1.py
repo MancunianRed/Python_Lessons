@@ -12,9 +12,8 @@ filters = "JPEGThumbnail Thumbnail JPEGInterchangeFormatLength " \
 
 def get_files_from_dir(path):
     with os.scandir(path) as scan:
-        files_list = [f.name for f in scan if f.is_file() and
-                      re.match(r".+\.((jpg)|(JPG))", f.name)]
-    return files_list, path
+        return [f.name for f in scan if f.is_file() and
+                      re.match(r".+\.((jpg)|(JPG))", f.name)], path
 
 
 def meta_data_jpg(data):
