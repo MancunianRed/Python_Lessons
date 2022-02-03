@@ -2,25 +2,24 @@
 import requests
 import socket
 from dns import reversename, resolver
-
-
-def reverse_dns(ip):
-    try:
-        rev_name = reversename.from_address(ip)
-        reversed_dns = resolver.resolve(str(rev_name), "PTR")[0]
-    except Exception as e:
-        print("Error ==> ", e)
-    else:
-        return reversed_dns
+import Part_2.Lesson_16.lesson_16_task_1.full_scripts.input_text_check as in_text
+import colorama
+from colorama import Fore
+colorama.init(autoreset=True)
 
 
 def reverse_ip():
     api = "http://api.hackertarget.com/reverseiplookup/"
-    var = input("Enter IP or Domain: ")
-    ip = socket.gethostbyname(var)
-    ip_dict = {"q": ip}
-    pwn = requests.request("GET", api, params=ip_dict)
-    print(f"Found domain hosted on the same web server as "
-          f"{str(reverse_dns(ip)).rstrip('.')} ({ip})")
-    print(pwn.text)
+    var = in_text.input_text("Enter IP or Domain: ")
+    try:
+        ip = socket.gethostbyname(var)
+        pwn = requests.request("GET", api, params={"q": ip})
+        reversed_dns = str(resolver.resolve(str(reversename.from_address(ip)),
+                                            "PTR")[0]).rstrip('.')
+    except Exception as e:
+        print(f"{Fore.RED} ==>> Error: {e}{Fore.RESET}")
+    else:
+        print(f"Found domain hosted on the same web server "
+              f"as {reversed_dns} ({ip})")
+        print(pwn.text)
 

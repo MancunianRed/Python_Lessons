@@ -1,12 +1,13 @@
 #  Пишем фреймворк: Задание 1 - 200 баллов
 import socket
+import Part_2.Lesson_16.lesson_16_task_1.full_scripts.input_text_check as in_text
 import colorama
 from colorama import Fore
 colorama.init(autoreset=True)
 
 
 def get_ip():
-    host = input("Enter the host name: ")
+    host = in_text.input_text("Enter the host name: ")
     if "://" in host:
         host = host.split("://")[1]
     host = host.replace("/", "")
